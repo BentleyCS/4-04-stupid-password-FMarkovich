@@ -13,9 +13,9 @@ The input is read as arguments and consists of two integers: n and l within the 
 Output Data
 Return a list of all "stupid" passwords in alphabetical order.
 """
-allpassword=[]
 
 def stupidPassword(n: int, l: int):
+    allpassword = []
     password = ""
     alphabet = ["a","b","c","d","e","f","g","h","i"]
     firstnum = 1
@@ -48,6 +48,6 @@ def stupidPassword(n: int, l: int):
             firstnum += 1
 
     allpassword.sort()
+    print(allpassword)
     return allpassword
-
-
+stupidPassword(2,4)
