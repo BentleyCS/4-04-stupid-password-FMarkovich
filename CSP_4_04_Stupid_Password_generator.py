@@ -13,7 +13,41 @@ The input is read as arguments and consists of two integers: n and l within the 
 Output Data
 Return a list of all "stupid" passwords in alphabetical order.
 """
+allpassword=[]
 
 def stupidPassword(n: int, l: int):
-    pass
+    password = ""
+    alphabet = ["a","b","c","d","e","f","g","h","i"]
+    firstnum = 1
+    secondnum = 1
+    firstletter = 0
+    secondletter = 0
+
+    while firstnum < n + 1:
+        for lastnum in range(max(firstnum, secondnum) + 1, n + 1):
+            password = password + str(firstnum)
+            password = password + str(secondnum)
+            password = password + alphabet[firstletter]
+            password = password + alphabet[secondletter]
+            password = password + str(lastnum)
+
+            allpassword.append(password)
+            password = ""
+
+        secondletter += 1
+        if secondletter == l:
+            secondletter = 0
+            firstletter += 1
+
+        if firstletter == l:
+            firstletter = 0
+            secondnum += 1
+
+        if secondnum == n + 1:
+            secondnum = 1
+            firstnum += 1
+
+    allpassword.sort()
+    return allpassword
+
 
